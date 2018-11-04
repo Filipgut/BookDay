@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DayBook</string>
+    <string name="facebook_app_id">928377277360444</string>
+    <string name="fb_login_protocol_scheme">fb928377277360444</string>
+</resources>

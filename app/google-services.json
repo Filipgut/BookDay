@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1041957366820",
+    "firebase_url": "https://daybook-42e42.firebaseio.com",
+    "project_id": "daybook-42e42",
+    "storage_bucket": "daybook-42e42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041957366820:android:00d3f279b34174c3",
+        "android_client_info": {
+          "package_name": "com.example.daybook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041957366820-2urmt9teo67qr7if0kr3b42opqfsasnb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.daybook",
+            "certificate_hash": "1ac22f3b3e7f28071cdca0a867ab8a83d345a4c4"
+          }
+        },
+        {
+          "client_id": "1041957366820-70h9pl105u1s1ecgrme4ugsj8cq5o28e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoLIOxeWRnon9X2jC255J5CmxSOG3mgEQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041957366820-70h9pl105u1s1ecgrme4ugsj8cq5o28e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
