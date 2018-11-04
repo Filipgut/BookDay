@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FacebookAuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,12 +21,14 @@ public class AccountSettingsActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
     ProgressDialog PD;
-    FacebookAuthProvider fbAuth;
+    FirebaseAuth fbAuth;
 
 
     @Override    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accountsettings);
+
+        auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
         PD = new ProgressDialog(this);
@@ -36,8 +40,8 @@ public class AccountSettingsActivity extends AppCompatActivity {
 
         btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override            public void onClick(View view) {
+                logoutApp();
                 auth.signOut();
-
                 FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
                     @Override
                     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -77,6 +81,17 @@ public class AccountSettingsActivity extends AppCompatActivity {
             finish();
         }
         super.onResume();
+    }
+    private void logoutApp()
+    {
+        // Logout from Facebook
+        if(AccessToken.getCurrentAccessToken() != null)
+        {
+            LoginManager.getInstance().logOut();
+            Intent intent = new Intent(AccountSettingsActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 }
 
