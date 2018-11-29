@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <ViewFlipper
+        android:id="@+id/flipperView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true" />
+
+
 </android.support.constraint.ConstraintLayout>
