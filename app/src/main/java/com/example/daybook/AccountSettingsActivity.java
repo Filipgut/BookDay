@@ -42,16 +42,11 @@ public class AccountSettingsActivity extends AppCompatActivity {
             @Override            public void onClick(View view) {
                 logoutApp();
                 auth.signOut();
-                FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
-                    @Override
-                    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                        FirebaseUser user = firebaseAuth.getCurrentUser();
-                        if (user == null) {
-                            startActivity(new Intent(AccountSettingsActivity.this, LoginActivity.class));
-                            finish();
-                        }
-                    }
-                };
+                Intent i = getBaseContext().getPackageManager()
+                        .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
             }
         });
 

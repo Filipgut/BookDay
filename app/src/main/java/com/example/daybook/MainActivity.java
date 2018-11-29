@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.mikepenz.materialdrawer.*;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        final FirebaseAuth auth = FirebaseAuth.getInstance();
         int images[] = {R.drawable.p1,R.drawable.p2,R.drawable.p3,R.drawable.p4};
         flipper = findViewById(R.id.flipperView);
 
@@ -67,9 +68,25 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem()
+                .withName("Sign Out")
+                .withTextColor(Color.GRAY)
+                .withIcon(R.drawable.signout).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        auth.signOut();
+                        Intent i = getBaseContext().getPackageManager()
+                                .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+                        finish();
+                        return true;
+                    }
+                });
+
 
         new DrawerBuilder().withActivity(this).withAccountHeader(accountHeader)
-                .addDrawerItems(item1).build();
+                .addDrawerItems(item1,item2).build();
 
 
         /*
