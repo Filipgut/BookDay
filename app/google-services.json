@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "1041957366820-hpm672tuc8d6mhqqc2799a2po6tpj2gm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.daybook",
+            "certificate_hash": "2149bad951d7ecb15c8313d9f6d322c14ae39f7a"
+          }
+        },
+        {
           "client_id": "1041957366820-70h9pl105u1s1ecgrme4ugsj8cq5o28e.apps.googleusercontent.com",
           "client_type": 3
         }

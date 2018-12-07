@@ -22,6 +22,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,7 +41,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         auth = FirebaseAuth.getInstance();
-
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
+        if(isLoggedIn) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
         signIn=(Button)findViewById(R.id.sign_in_button);
         signUp=(Button)findViewById(R.id.sign_up_button);
         mail= (EditText)findViewById(R.id.email);
@@ -48,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         fbLogin = (LoginButton)findViewById(R.id.fb_button);
         fbLogin.setReadPermissions(Arrays.asList("email","public_profile"));
         callbackManager = CallbackManager.Factory.create();
+
 
         fbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -82,9 +90,6 @@ public class LoginActivity extends AppCompatActivity {
 
                             } else {
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                               /* ArrayList<FirebaseAuth> list = new ArrayList<>();
-                                list.add(auth);
-                                intent.putExtra("auth",list);*/
                                 startActivity(intent);
                                 finish();
                             }
@@ -142,11 +147,10 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Authentication failed", Toast.LENGTH_LONG).show();
                     Log.v("error", task.getResult().toString());
                 }else{
+                    FirebaseUser user = auth.getCurrentUser();
+                    fbLogin.setEnabled(true);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    /*ArrayList<FirebaseAuth> list = new ArrayList<>();
-                    list.add(auth);
-                    intent.putExtra("auth",list);
-                    */startActivity(intent);
+                    startActivity(intent);
                     finish();
                 }
             }

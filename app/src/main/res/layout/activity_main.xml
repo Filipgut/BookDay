@@ -11,7 +11,63 @@
         android:id="@+id/flipperView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="41dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="416dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-2dp">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_height="fill_parent"
+            android:stretchColumns="1">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="scroll"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="scroll"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="scroll"
+                /> <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="scroll"
+            /> <Button
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="scroll"
+            />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="scroll"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="scroll"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="scroll"
+                />
+
+
+        </TableLayout>
+    </ScrollView>
 
 
 </android.support.constraint.ConstraintLayout>
