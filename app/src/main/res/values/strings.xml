@@ -2,5 +2,7 @@
     <string name="app_name">DayBook</string>
     <string name="facebook_app_id">2046682612060215</string>
     <string name="fb_login_protocol_scheme">fb2046682612060215</string>
-
+    <string name="post">Create a new post</string>
+    <string name="description">Description:</string>
+    <string name="buttonPhoto">Add a photo</string>
 </resources>

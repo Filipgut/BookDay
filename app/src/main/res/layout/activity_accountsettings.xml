@@ -1,63 +1,106 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/common_google_signin_btn_text_dark_pressed"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@color/com_facebook_device_auth_text"
+    android:gravity="center">
     tools:con
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Welcome to Firebase Auth Tutorial"
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="52dp"
         android:gravity="center"
-        android:textAllCaps="true"
+        android:padding="10dp"
+        android:text="Account settings options:"
+        android:textAllCaps="false"
+        android:textColor="@color/md_amber_300"
         android:textSize="16sp"
-        android:padding="10dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/cardview_dark_background" />
 
 
     <Button
         android:id="@+id/change_password_button"
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
-        android:background="@color/colorPrimary"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="68dp"
+        android:background="@color/cardview_dark_background"
         android:text="Change Password"
-        android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
+        android:textAllCaps="false"
+        android:textColor="@color/md_amber_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:background="@color/cardview_dark_background" />
 
 
     <Button
         android:id="@+id/change_email_button"
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
-        android:background="@color/colorPrimary"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/cardview_dark_background"
         android:text="Change Email"
-        android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
+        android:textAllCaps="false"
+        android:textColor="@color/md_amber_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_password_button" />
 
 
     <Button
         android:id="@+id/delete_user_button"
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
-        android:background="@color/colorPrimary"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/cardview_dark_background"
         android:text="Delete User"
-        android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
+        android:textAllCaps="false"
+        android:textColor="@color/md_amber_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_email_button" />
 
 
     <Button
         android:id="@+id/sign_out_button"
-        android:layout_width="fill_parent"
+        android:layout_width="352dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
-        android:background="@color/colorPrimary"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/cardview_dark_background"
         android:text="Sign Out"
-        android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
+        android:textAllCaps="false"
+        android:textColor="@color/md_amber_400"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delete_user_button"
+        app:layout_constraintVertical_bias="0.666" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
 
 

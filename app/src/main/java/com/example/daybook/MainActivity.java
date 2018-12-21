@@ -1,11 +1,14 @@
 package com.example.daybook;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
@@ -26,16 +29,19 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ViewFlipper flipper;
+    ImageView imageView;
+    final FirebaseAuth auth = FirebaseAuth.getInstance();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final FirebaseAuth auth = FirebaseAuth.getInstance();
         int images[] = {R.drawable.p1,R.drawable.p2,R.drawable.p3,R.drawable.p4};
         flipper = findViewById(R.id.flipperView);
 
+        Button postBtn = findViewById(R.id.buttonPost);
+        imageView = (ImageView)findViewById(R.id.imageview);
 
         for(int image : images)
             flipperImages(image);
@@ -135,6 +141,24 @@ public class MainActivity extends AppCompatActivity {
                 .withSliderBackgroundColor(Color.DKGRAY)
                 .withCloseOnClick(true)
                 .build();*/
+
+
+
+        postBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PostActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+        imageView.setImageBitmap(bitmap);
     }
 
     public void flipperImages(int image){
@@ -148,4 +172,6 @@ public class MainActivity extends AppCompatActivity {
         flipper.setInAnimation(this, android.R.anim.slide_in_left);
         flipper.setInAnimation(this, android.R.anim.slide_out_right);
     }
+
+
 }

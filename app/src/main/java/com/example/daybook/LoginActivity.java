@@ -40,21 +40,23 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         auth = FirebaseAuth.getInstance();
-        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        callbackManager = CallbackManager.Factory.create();
+
+        /*AccessToken accessToken = AccessToken.getCurrentAccessToken();
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
         if(isLoggedIn) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
-        }
+        }*/
         signIn=(Button)findViewById(R.id.sign_in_button);
         signUp=(Button)findViewById(R.id.sign_up_button);
         mail= (EditText)findViewById(R.id.email);
         password = (EditText)findViewById(R.id.password);
         fbLogin = (LoginButton)findViewById(R.id.fb_button);
         fbLogin.setReadPermissions(Arrays.asList("email","public_profile"));
-        callbackManager = CallbackManager.Factory.create();
 
 
         fbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -132,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this, AccountSettingsActivity.class));
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
         super.onResume();
