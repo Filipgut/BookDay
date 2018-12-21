@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
@@ -10,92 +11,102 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:background="#4DFFFFFF"
-        android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_margin="20dp"
-        android:weightSum="3"
-        android:layout_height="50dp">
-        <View
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="match_parent"/>
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="@drawable/ic_mail_outline_black_24dp"
-            />
-        <View
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="match_parent"/>
+        android:orientation="vertical">
 
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:textColor="#FFF"
-        android:text="@string/post"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="20dp"
-        android:weightSum="4"
-        android:layout_height="match_parent">
-        
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
             android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_height="30dp">
+            android:weightSum="3">
 
             <View
-                android:layout_width="30dp"
-                android:background="@drawable/pencil"
-                android:layout_height="match_parent"/>
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="#FFF"
-                android:textAlignment="viewStart"
-                android:gravity="center"
-                android:text="@string/description"/>
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_mail_outline_black_24dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
         </LinearLayout>
-        <EditText
+
+        <TextView
             android:layout_width="match_parent"
-            android:id="@+id/description"
-            android:textColor="#FFF"
-            android:backgroundTint="#FFF"
-            android:layout_height="90dp" 
-            />
-        <Button
-            android:id="@+id/button_image"
-            android:layout_width="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="#FFF"
-            android:textAlignment="center"
-            android:background="#000"
-            android:text="@string/buttonPhoto"/>
-    
-    
-        <ImageView
-            android:id="@+id/imageview"
+            android:layout_height="37dp"
+            android:gravity="center"
+            android:text="@string/post"
+            android:textColor="#FFF" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:visibility="gone"
-            android:layout_above="@+id/button_image"
-            android:layout_centerHorizontal="true" />
+            android:layout_height="120dp"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pencil" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/description"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFF" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:backgroundTint="#FFF"
+                android:textColor="#FFF" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/button_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="1dp"
+                android:background="#000"
+                android:text="@string/buttonPhoto"
+                android:textAlignment="center"
+                android:textColor="#FFF" />
+
+
+            <ImageView
+                android:id="@+id/imageview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/button_image"
+                android:layout_centerHorizontal="true" />
         </LinearLayout>
 
     </LinearLayout>
