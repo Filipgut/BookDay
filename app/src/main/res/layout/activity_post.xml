@@ -72,7 +72,8 @@
                     android:gravity="center"
                     android:text="@string/description"
                     android:textAlignment="viewStart"
-                    android:textColor="#FFF" />
+                    android:textColor="#FFF"
+                    tools:ignore="RtlCompat" />
 
             </LinearLayout>
 
@@ -95,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="1dp"
-                android:background="#000"
+                android:background="@color/cardview_dark_background"
                 android:text="@string/buttonPhoto"
                 android:textAlignment="center"
                 android:textColor="#FFF" />
@@ -104,9 +105,18 @@
             <ImageView
                 android:id="@+id/imageview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="450dp"
                 android:layout_above="@+id/button_image"
                 android:layout_centerHorizontal="true" />
+            <Button
+                android:id="@+id/create_post"
+                android:layout_height="25dp"
+                android:layout_width="match_parent"
+                android:background="@color/cardview_dark_background"
+                android:text="@string/buttonPost"
+                android:textAllCaps="false"
+                android:textColor="#FFF"
+                />
         </LinearLayout>
 
     </LinearLayout>
